@@ -93,7 +93,13 @@ public class BachConfig {
     public ConversionService conversionService() {
         DefaultConversionService conversionService = new DefaultConversionService();
         DefaultConversionService.addDefaultConverters(conversionService);
-        conversionService.addConverter((Converter<String, YearMonth>) text -> YearMonth.parse(text, DateTimeFormatter.ofPattern("MMMM yyyy")));
+        conversionService.addConverter(new Converter<String, YearMonth>() {
+            @Override
+            public YearMonth convert(String text) {
+                return YearMonth.parse(text, DateTimeFormatter.ofPattern("MMMM yyyy"));
+            }
+        });
+
         return conversionService;
     }
 }
