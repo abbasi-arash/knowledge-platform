@@ -30,7 +30,7 @@ import java.util.Objects;
 @Configuration
 @EnableBatchProcessing
 public class BachConfig {
-    private Environment environment;
+    private final Environment environment;
 
     public BachConfig(Environment environment) {
         this.environment = environment;
@@ -91,15 +91,9 @@ public class BachConfig {
 
     @Bean
     public ConversionService conversionService() {
-        DefaultConversionService testConversionService = new DefaultConversionService();
-        DefaultConversionService.addDefaultConverters(testConversionService);
-        testConversionService.addConverter(new Converter<String, YearMonth>() {
-            @Override
-            public YearMonth convert(String text) {
-                return YearMonth.parse(text, DateTimeFormatter.ofPattern("MMMM yyyy"));
-            }
-        });
-
-        return testConversionService;
+        DefaultConversionService conversionService = new DefaultConversionService();
+        DefaultConversionService.addDefaultConverters(conversionService);
+        conversionService.addConverter((Converter<String, YearMonth>) text -> YearMonth.parse(text, DateTimeFormatter.ofPattern("MMMM yyyy")));
+        return conversionService;
     }
 }
