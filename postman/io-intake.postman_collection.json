@@ -1,0 +1,148 @@
+{
+	"info": {
+		"_postman_id": "a1ea8f2c-3a60-4679-bde3-380c9aefd5f2",
+		"name": "io-intake",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1844566"
+	},
+	"item": [
+		{
+			"name": "save tedtalk",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"my ted talks\",\n    \"author\": \"Arash\",\n    \"date\": \"June 2022\",\n    \"views\": \"1\",\n    \"likes\": \"300\",\n    \"link\": \"google.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/api/ksp/v1/ted-talks",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"ksp",
+						"v1",
+						"ted-talks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "edit tedtalk",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"my ted talks good\",\n    \"author\": \"Arash\",\n    \"date\": \"June 2022\",\n    \"views\": \"250\",\n    \"likes\": \"306\",\n    \"link\": \"google.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/api/ksp/v1/ted-talks/10885",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"ksp",
+						"v1",
+						"ted-talks",
+						"10885"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get tedtalk",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8080/api/ksp/v1/ted-talks?title=good&page=0&size=100&views=475000",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"ksp",
+						"v1",
+						"ted-talks"
+					],
+					"query": [
+						{
+							"key": "title",
+							"value": "good"
+						},
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "size",
+							"value": "100"
+						},
+						{
+							"key": "views",
+							"value": "475000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete tedtalk",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8080/api/ksp/v1/ted-talks/10885",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"ksp",
+						"v1",
+						"ted-talks",
+						"10885"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
