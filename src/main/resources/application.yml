@@ -19,10 +19,7 @@ spring:
     jdbc:
       initialize-schema: always
     job:
-      enabled: true
+      enabled: false
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher
-
-springdoc:
-
