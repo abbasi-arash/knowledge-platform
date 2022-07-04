@@ -2,7 +2,7 @@ server:
   port: 8080
 
 csv:
-  file-path: src/main/resources/data.csv
+  file-path: data.csv
 
 spring:
   datasource:
@@ -19,4 +19,7 @@ spring:
     jdbc:
       initialize-schema: always
     job:
-      enabled: false
+      enabled: true
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher

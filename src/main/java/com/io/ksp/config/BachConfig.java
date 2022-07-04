@@ -21,7 +21,7 @@ import org.springframework.core.convert.ConversionService;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.core.convert.support.DefaultConversionService;
 import org.springframework.core.env.Environment;
-import org.springframework.core.io.FileSystemResource;
+import org.springframework.core.io.ClassPathResource;
 
 import java.time.YearMonth;
 import java.time.format.DateTimeFormatter;
@@ -63,7 +63,7 @@ public class BachConfig {
     @Bean
     public FlatFileItemReader<TedTalkEntity> itemReader() {
         FlatFileItemReader<TedTalkEntity> flatFileItemReader = new FlatFileItemReader<>();
-        flatFileItemReader.setResource(new FileSystemResource(Objects.requireNonNull(environment.getProperty("csv.file-path"))));
+        flatFileItemReader.setResource(new ClassPathResource(Objects.requireNonNull(environment.getProperty("csv.file-path"))));
         flatFileItemReader.setName("csv-Reader");
         flatFileItemReader.setLinesToSkip(1);
         flatFileItemReader.setLineMapper(lineMapper());
